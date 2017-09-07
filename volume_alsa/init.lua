@@ -88,7 +88,7 @@ function lower(cardid, channel, v)
 end
 
 function mute(cardid, channel)
-  awful.util.spawn("amixer -c " .. cardid .. " sset " .. channel .. " toggle", false)
+  awful.util.spawn("amixer sset " .. channel .. " toggle", false)
   update_by_values(cardid, channel)
 end
 
