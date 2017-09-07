@@ -55,8 +55,10 @@ local function update(obj)
   local status = get_data(obj.cardid, obj.channel) or { mute = true, volume = 0 }
 
   local color = "#900000"
+  local abrv = obj.abrv
   if not status.mute then
-    color = "#009000"
+     color = "#009000"
+     abrv = "♫"
   end
 
   local format = " %03d%%"
@@ -64,7 +66,7 @@ local function update(obj)
     format = ""
   end
 
-  obj.widget:set_markup(lib.markup.fg.color(color, "" .. obj.abrv .. "" ) .. string.format(format, status.volume))
+  obj.widget:set_markup(lib.markup.fg.color(color, "" .. abrv .. "" ) .. string.format(format, status.volume))
 end
 
 local function update_by_values(cardid, channel)
